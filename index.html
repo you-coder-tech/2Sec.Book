@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>كتب لدود الكتب</title>
+    <style>
+        /* --- Google Fonts --- */
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@700;900&display=swap');
+
+        /* --- Global Styles & Neon Theme --- */
+        :root {
+            --neon-blue: #00bfff;
+            --neon-pink: #ff007f;
+            --dark-bg: #0d0221;
+            --glow-spread: 10px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: var(--dark-bg);
+            color: white;
+            overflow-x: hidden;
+            padding: 20px;
+        }
+
+        /* --- Particle Animation Canvas --- */
+        #particle-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        /* --- Main Content --- */
+      .container {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 40px;
+            background: rgba(13, 2, 33, 0.65);
+            border-radius: 15px;
+            border: 2px solid var(--neon-blue);
+            box-shadow: 0 0 var(--glow-spread) var(--neon-blue), inset 0 0 var(--glow-spread) var(--neon-blue);
+            animation: fadeIn 2s ease-in-out;
+            max-width: 900px;
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            color: #fff;
+            text-shadow:
+                0 0 5px var(--neon-pink),
+                0 0 10px var(--neon-pink),
+                0 0 20px var(--neon-pink),
+                0 0 40px var(--neon-pink);
+            animation: flicker 1.5s infinite alternate;
+        }
+
+        p.subtitle {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--neon-blue);
+            text-shadow: 0 0 5px var(--neon-blue);
+            margin-top: -10px;
+            margin-bottom: 40px;
+        }
+        
+        /* --- Download Buttons --- */
+      .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 2rem;
+        }
+
+      .btn {
+            background: transparent;
+            border: 2px solid var(--neon-blue);
+            color: var(--neon-blue);
+            padding: 15px 25px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 8px;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: color 0.4s, box-shadow 0.4s, border-color 0.4s, transform 0.3s;
+            box-shadow: 0 0 5px var(--neon-blue), inset 0 0 5px var(--neon-blue);
+        }
+
+      .btn:hover {
+            color: var(--dark-bg);
+            border-color: var(--neon-pink);
+            background-color: var(--neon-pink);
+            box-shadow: 0 0 var(--glow-spread) var(--neon-pink), 0 0 20px var(--neon-pink), inset 0 0 10px var(--neon-pink);
+            transform: translateY(-5px);
+        }
+
+        /* --- Keyframe Animations --- */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes flicker {
+            0%, 18%, 22%, 25%, 53%, 57%, 100% {
+                text-shadow:
+                    0 0 4px #fff,
+                    0 0 11px var(--neon-pink),
+                    0 0 19px var(--neon-pink),
+                    0 0 40px var(--neon-pink);
+            }
+            20%, 24%, 55% {
+                text-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="particle-canvas"></canvas>
+
+    <div class="container">
+        <h1>كتب لدود الكتب</h1>
+        <p class="subtitle">تانيه ثانوي</p>
+
+        <div class="books-grid">
+            <a href="https://drive.google.com/file/d/18aGiqaOz6jVlDxX060NDVn9aeomgPYh2/view?usp=drive_link" class="btn" target="_blank">ملخص الامتحان عربي</a>
+            <a href="https://drive.google.com/file/d/1tjcwTPCnRpmOVTxbnODGDjyg0ZMLv9Mw/view?usp=drive_link" class="btn" target="_blank">ملحق ملخص الامتحان عربي</a>
+            <a href="https://drive.google.com/file/d/1aHR2aGEzJvK5GDumbej2gUWD8T_hnj6k/view?usp=drive_link" class="btn" target="_blank">ملخص معاصر تطبيقات</a>
+            <a href="https://drive.google.com/file/d/1AHYGyCydMooJk8tDMDjpkBT6oy4UI1Li/view?usp=drive_link" class="btn" target="_blank">ملحق التطبيقات معاصر</a>
+            <a href="https://drive.google.com/file/d/1ep8XHGttJvFcDkXCVl4myvVpmNpmOjOP/view?usp=drive_link" class="btn" target="_blank">إجابات معاصر التطبيقات</a>
+            <a href="https://drive.google.com/file/d/1oIRyaiY1TCcbbdFFOl8slNd4GWP9uLRQ/view?usp=drive_link" class="btn" target="_blank">ملخص بحته</a>
+            <a href="https://drive.google.com/file/d/15QYmJtJdXmHp-t-ctTHnyY2CqifEKfjF/view?usp=drive_link" class="btn" target="_blank">ملحق بحته</a>
+            <a href="https://drive.google.com/file/d/1VZHippAIyZK2ygb1E3kC90IFui4Txpx-/view?usp=drive_link" class="btn" target="_blank">إجابات البحته</a>
+            <a href="https://drive.google.com/file/d/1jeViyZ3t7auhm4bCkE0Ys7l6xvMnGppI/view?usp=drive_link" class="btn" target="_blank">الامتحان فيزياء</a>
+            <a href="https://drive.google.com/file/d/1ZmqNcFEn16OkvF-VaysxOaCf6sM35pnL/view?usp=drive_link" class="btn" target="_blank">الامتحان تاريخ</a>
+            <a href="https://drive.google.com/file/d/1DRnwcuegtDOBm8WSM4qOSxWZDFRHhg0l/view?usp=drive_link" class="btn" target="_blank">المعاصر إنجلش</a>
+            <a href="https://drive.google.com/file/d/1jvt7aXbbfDWDB5jaWljXCByefANY24yr/view?usp=drive_link" class="btn" target="_blank">ملحق المعاصر إنجلش</a>
+        </div>
+    </div>
+
+    <script>
+        // --- Particle Animation Script ---
+        const canvas = document.getElementById('particle-canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        let particlesArray;
+
+        const particleColors = ['#00bfff', '#ff007f', '#ffffff'];
+
+        class Particle {
+            constructor(x, y, directionX, directionY, size, color) {
+                this.x = x;
+                this.y = y;
+                this.directionX = directionX;
+                this.directionY = directionY;
+                this.size = size;
+                this.color = color;
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
+                ctx.fillStyle = this.color;
+                ctx.fill();
+            }
+
+            update() {
+                if (this.x > canvas.width || this.x < 0) {
+                    this.directionX = -this.directionX;
+                }
+                if (this.y > canvas.height || this.y < 0) {
+                    this.directionY = -this.directionY;
+                }
+                this.x += this.directionX;
+                this.y += this.directionY;
+                this.draw();
+            }
+        }
+
+        function init() {
+            particlesArray = [];
+            let numberOfParticles = (canvas.height * canvas.width) / 9000;
+            for (let i = 0; i < numberOfParticles; i++) {
+                let size = (Math.random() * 2) + 1;
+                let x = (Math.random() * ((innerWidth - size * 2) - (size * 2)) + size * 2);
+                let y = (Math.random() * ((innerHeight - size * 2) - (size * 2)) + size * 2);
+                let directionX = (Math.random() *.4) -.2;
+                let directionY = (Math.random() *.4) -.2;
+                let color = particleColors[Math.floor(Math.random() * particleColors.length)];
+
+                particlesArray.push(new Particle(x, y, directionX, directionY, size, color));
+            }
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+            ctx.clearRect(0, 0, innerWidth, innerHeight);
+
+            for (let i = 0; i < particlesArray.length; i++) {
+                particlesArray[i].update();
+            }
+        }
+
+        window.addEventListener('resize', () => {
+            canvas.width = innerWidth;
+            canvas.height = innerHeight;
+            init();
+        });
+
+        init();
+        animate();
+    </script>
+
+</body>
+</html>
