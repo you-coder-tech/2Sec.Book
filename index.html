@@ -45,7 +45,7 @@
         }
 
         /* --- Main Content --- */
-     .container {
+    .container {
             position: relative;
             z-index: 2;
             text-align: center;
@@ -91,14 +91,14 @@
         }
 
         /* --- Tabs for Subjects --- */
-      .tabs {
+     .tabs {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
             margin-bottom: 25px;
             gap: 10px;
         }
-      .tab-link {
+     .tab-link {
             background: transparent;
             border: 2px solid var(--neon-blue);
             color: var(--neon-blue);
@@ -110,23 +110,23 @@
             cursor: pointer;
             transition: background-color 0.3s, color 0.3s;
         }
-      .tab-link:hover,.tab-link.active {
+     .tab-link:hover,.tab-link.active {
             background-color: var(--neon-blue);
             color: var(--dark-bg);
             box-shadow: 0 0 15px var(--neon-blue);
         }
 
         /* --- Books Grid --- */
-      .tab-content {
+     .tab-content {
             display: none; /* Hidden by default */
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 25px;
             animation: contentFadeIn 0.5s;
         }
-      .tab-content.active {
+     .tab-content.active {
             display: grid; /* Shown when active */
         }
-     .btn {
+    .btn {
             background: transparent;
             border: 2px solid var(--neon-pink);
             color: var(--neon-pink);
@@ -139,7 +139,7 @@
             transition: all 0.3s;
             box-shadow: 0 0 5px var(--neon-pink), inset 0 0 5px var(--neon-pink);
         }
-     .btn:hover {
+    .btn:hover {
             color: var(--dark-bg);
             background-color: var(--neon-pink);
             box-shadow: 0 0 var(--glow-spread) var(--neon-pink), 0 0 20px var(--neon-pink);
@@ -178,6 +178,7 @@
             <button class="tab-link" onclick="openTab(event, 'math')">رياضيات</button>
             <button class="tab-link" onclick="openTab(event, 'physics')">فيزياء</button>
             <button class="tab-link" onclick="openTab(event, 'history')">تاريخ</button>
+            <button class="tab-link" onclick="openTab(event, 'chemistry')">كيمياء</button>
             <button class="tab-link" onclick="openTab(event, 'english')">إنجليزي</button>
         </div>
 
@@ -211,11 +212,17 @@
         <div id="history" class="tab-content">
             <a href="https://drive.google.com/file/d/1ZmqNcFEn16OkvF-VaysxOaCf6sM35pnL/view?usp=drive_link" class="btn" target="_blank">الامتحان تاريخ</a>
         </div>
+        
+        <!-- Chemistry Books -->
+        <div id="chemistry" class="tab-content">
+            <a href="https://drive.google.com/file/d/1Saiin42x1i8za44SOGYA3NRAEJXK7QOY/view?usp=drive_link" class="btn" target="_blank">الامتحان كيمياء</a>
+        </div>
 
         <!-- English Books -->
         <div id="english" class="tab-content">
             <a href="https://drive.google.com/file/d/1DRnwcuegtDOBm8WSM4qOSxWZDFRHhg0l/view?usp=drive_link" class="btn" target="_blank">المعاصر إنجلش</a>
             <a href="https://drive.google.com/file/d/1jvt7aXbbfDWDB5jaWljXCByefANY24yr/view?usp=drive_link" class="btn" target="_blank">ملحق المعاصر إنجلش</a>
+            <a href="https://drive.google.com/file/d/1ok7lf8khrCytik-X4xpupyHeQoNpLL6W/view?usp=drive_link" class="btn" target="_blank">قصة إنجلش</a>
         </div>
 
     </div>
@@ -254,7 +261,7 @@
         // Populate "All" tab and set default tab
         document.addEventListener('DOMContentLoaded', () => {
             const allBooksContainer = document.getElementById('all');
-            const bookButtons = document.querySelectorAll('.tab-content:not(#all).btn'); // Select buttons inside content tabs
+            const bookButtons = document.querySelectorAll('.tab-content.btn');
             bookButtons.forEach(button => {
                 allBooksContainer.appendChild(button.cloneNode(true));
             });
